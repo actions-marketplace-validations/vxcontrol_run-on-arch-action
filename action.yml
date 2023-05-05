@@ -1,12 +1,12 @@
-name: 'Run on architecture'
+name: 'Run on architecture (vxcontrol)'
 branding:
   icon: 'cpu'
   color: 'green'
-description: 'Run commands in a Linux container with a specific CPU architecture (armv6, armv7, aarch64, s390x, ppc64le)'
+description: 'Run commands in a Linux container with a specific CPU architecture (armv6, armv7, aarch64, s390x, ppc64le, i386, amd64)'
 author: 'Umberto Raimondi, Elijah Shaw-Rutschman'
 inputs:
   arch:
-    description: 'CPU architecture: armv6, armv7, aarch64, riscv64, s390x, ppc64le.'
+    description: 'CPU architecture: armv6, armv7, aarch64, riscv64, s390x, ppc64le, i386, amd64.'
     required: false
     default: 'aarch64'
   distro:
