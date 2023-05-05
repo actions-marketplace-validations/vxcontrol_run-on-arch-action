@@ -2,7 +2,7 @@
 
 [![](https://github.com/uraimo/run-on-arch-action/workflows/test/badge.svg)](https://github.com/uraimo/run-on-arch-action)
 
-A GitHub Action that executes commands on non-x86 CPU architecture (armv6, armv7, aarch64, s390x, ppc64le) via QEMU.
+A GitHub Action that executes commands on CPU architecture (armv6, armv7, aarch64, s390x, ppc64le, amd64, i386) via QEMU.
 
 ## Usage
 
@@ -158,6 +158,8 @@ This table details the valid `arch`/`distro` combinations:
 | riscv64  | ubuntu20.04, ubuntu22.04, ubuntu_latest, ubuntu_rolling, ubuntu_devel, alpine_edge |
 | s390x    | jessie, stretch, buster, bullseye, ubuntu16.04, ubuntu18.04, ubuntu20.04, ubuntu22.04, ubuntu_latest, ubuntu_rolling, ubuntu_devel, fedora_latest, alpine_latest |
 | ppc64le  | jessie, stretch, buster, bullseye, ubuntu16.04, ubuntu18.04,ubuntu20.04, ubuntu22.04, ubuntu_latest, ubuntu_rolling, ubuntu_devel, fedora_latest, alpine_latest |
+| i386     | buster, bullseye, alpine_lastest |
+| amd64    | buster, bullseye |
 
 
 Using an invalid `arch`/`distro` combination will fail.
@@ -169,6 +171,8 @@ This project makes use of an additional QEMU container to be able to emulate via
 ## Contributing
 
 New distros and archs can be added simply by creating a Dockerfile named `Dockerfile.{arch}.{distro}` (that targets an image for the desired combination) in the [Dockerfiles](https://github.com/uraimo/run-on-arch-action/blob/master/Dockerfiles) directory. Pull requests welcome!
+
+Note: If you're adding an i386 architecture distro, make sure that the Dockerfile contains `ENTRYPOINT ["linux32", "--"]`, otherwise uname will report incorrect architecture.
 
 ## Authors
 
